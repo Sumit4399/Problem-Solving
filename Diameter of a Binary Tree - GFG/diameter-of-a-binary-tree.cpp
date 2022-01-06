@@ -103,9 +103,9 @@ class Solution {
          int r= solve(root->right, res);
          
          int temp= max(l,r) + 1;
-         int ans= max(temp, 1+l+r);
+         //int ans= max(temp, 1+l+r);
          
-         res= max(res, ans);
+         res= max(res, 1+l+r);
          
          return temp;
      }
