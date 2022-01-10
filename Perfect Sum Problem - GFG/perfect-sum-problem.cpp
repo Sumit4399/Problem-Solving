@@ -9,7 +9,7 @@ class Solution{
 	int perfectSum(int arr[], int n, int sum)
 	{
         // Your code goes here
-        int mod= 1000000007;
+      int mod= 1000000007;
       int t[n+1][sum+1];
       for(int i=0;i<n+1;i++)
       {
@@ -32,7 +32,7 @@ class Solution{
               }
           }
       }
-      return (int)t[n][sum]%mod;
+      return t[n][sum]%mod;
 	}
 	  
 };
