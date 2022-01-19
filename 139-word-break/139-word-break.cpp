@@ -14,7 +14,7 @@ public:
         {
             for(int j=i-1;j>=0;j--)
             {
-                if(dp[j])
+                if(dp[j]!=false)
                 {
                     string ans = s.substr(j,i-j);
                     if(set.find(ans)!= set.end())
