@@ -6,7 +6,9 @@ public:
         int m= multipliers.size();
         if(m>n) return 0;
         
-        vector<vector<int>> dp(m+1, vector<int>(m+1,0));
+        int dp[m+1][m+1];
+        memset(dp,0,sizeof(dp));
+        //vector<vector<int>> dp(m+1, vector<int>(m+1,0));
         
         for(int i=m-1; i>=0; i--)
         {
