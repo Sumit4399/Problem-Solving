@@ -3,9 +3,9 @@ public:
     int maxProfit(int k, vector<int>& prices) {
         
         int n=prices.size();
-        //int dp[n+1][k+1][2];
-        //vector<vector<int>> dp(rows+1,vector<int>(cols+1,0))
-        vector<vector<vector<int>>> dp(n+1, vector<vector<int>> (k+1, vector<int>(2,0)));
+        int dp[n+1][k+1][2];
+        memset(dp,0,sizeof(dp));
+        //vector<vector<vector<int>>> dp(n+1, vector<vector<int>> (k+1, vector<int>(2,0)));
         
         for(int i=n-1; i>=0; i--)
         {
