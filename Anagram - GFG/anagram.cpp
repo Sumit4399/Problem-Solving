@@ -8,24 +8,46 @@ class Solution
 {
     public:
     //Function is to check whether two strings are anagram of each other or not.
-    bool isAnagram(string a, string b){
+    // bool isAnagram(string a, string b){
         
-        int n= a.length();
-        int m= b.length();
-        if(n!=m)
-        return false;
+    //     int n= a.length();
+    //     int m= b.length();
+    //     if(n!=m)
+    //     return false;
         
-        sort(a.begin(), a.end());
-        sort(b.begin(), b.end());
+    //     sort(a.begin(), a.end());
+    //     sort(b.begin(), b.end());
         
-        for(int i=0; i<n; i++)
-        {
-            if(a[i]!=b[i])
-            return false;
-        }
-        
-        return true;
-    }
+    //     for(int i=0; i<n; i++)
+    //     {
+    //         if(a[i]!=b[i])
+    //         return false;
+    //     }
+    //     return true;
+    // }
+    
+       
+       bool isAnagram(string a, string b){
+           
+           int count[256]={0};
+           int i;
+           
+           for(i=0; a[i]&&b[i]; i++)
+           {
+               count[a[i]]++;
+               count[b[i]]--;
+           }
+           
+           if (a[i] || b[i])
+           return false;
+           
+           for(i=0; i<256; i++)
+           {
+               if(count[i]!=0)
+               return false;
+           }
+           return true;
+       }
 
 };
 
