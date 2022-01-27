@@ -12,41 +12,32 @@ public:
 //                 curr= nums[i];
 //                 best= max(curr, best);
 //             }
-//             else
-//             {
-                
-//             }
 //         }
 //         return best;
 //     }
     
-    
-    int normalMaximum(vector<int> &nums)//kadane's algorithm
-{
-    int res=nums[0];
-    int maxending=nums[0];
-    
-    for(int i=1;i<nums.size();i++)
-    {
-        maxending=max(maxending+nums[i],nums[i]);
-        res=max(res,maxending);
+       
+    int maxSubArray(vector<int>& nums) {
+        int ans=nums[0],sum=0;
+        
+        for(int i=0;i<nums.size();i++){
+            sum = max(nums[i],sum+nums[i]);
+            ans = max(ans,sum);
+        }
+        return ans;        
     }
-    return res;
-}
-int maxSubarraySumCircular(vector<int>& nums) 
-{
-    int max_normal=normalMaximum(nums);
     
-    if(max_normal<0)//when all elements are -ve
-        return max_normal;
     
-    int sum=0;
-    for(int i=0;i<nums.size();i++)
-    {
-        sum+=nums[i];//current array sum
-        nums[i]=-nums[i];//inverting the current array
+    int maxSubarraySumCircular(vector<int>& nums) {
+        int ans_kandane = maxSubArray(nums),total=0;
+        
+        for(int i=0;i<nums.size();i++)
+            total += nums[i],nums[i] = -nums[i];
+        int ans_wrap = maxSubArray(nums)+total;
+        if(ans_wrap == 0)
+            return ans_kandane;
+        return max(ans_kandane,ans_wrap);
     }
-    int maxcircular=sum+normalMaximum(nums);//sum of given array + maximum subarray sum of inverted subarray
-    return max(max_normal,maxcircular);
-}
+
+    
 };
