@@ -127,42 +127,42 @@ struct Node
  */
 
 
-void level(Node *root,int lev,vector<int> &v){
-    if(root==NULL) return;
-    if(v.size()==lev) v.push_back(root->data);
-    level(root->left,lev+1,v);
-    level(root->right,lev+1,v);
-}
+// void level(Node *root,int lev,vector<int> &v){
+//     if(root==NULL) return;
+//     if(v.size()==lev) v.push_back(root->data);
+//     level(root->left,lev+1,v);
+//     level(root->right,lev+1,v);
+// }
 
-vector<int> leftView(Node *root)
-{
-   vector<int> v;
-   level(root,0,v);
-   return v;
-}
+// vector<int> leftView(Node *root)
+// {
+//   vector<int> v;
+//   level(root,0,v);
+//   return v;
+// }
 
 
 // //Function to return a list containing elements of left view of the binary tree.
-// vector<int> leftView(Node *root)
-// {
+vector<int> leftView(Node *root)
+{
  
-//   vector<int> res;
-//   if(root==NULL)
-//   return res;
-//   queue<Node*> q;
-//   q.push(root);
-   
-//   while(q.empty()!=false)
-//   {
-//       Node* curr= q.front();
-//       q.pop();
-//       res.push_back(curr->data);
+  vector<int>v;
+   if(root==NULL) return v;
+   queue<Node*>q;
+   q.push(root);
+   while(!q.empty()){
+       int n=q.size();
+       for(int i=0;i<n;i++){
+           Node *temp=q.front();
+            q.pop();
+            if(i==0){
+                v.push_back(temp->data);
+                
+            }
+            if(temp->left!=NULL) q.push(temp->left);
+            if(temp->right!=NULL) q.push(temp->right);
+       }
        
-//       if(curr->left!=NULL)
-//       {
-//           q.push(curr->left);
-//       }
-//   }
-//   return res;
-
- //}
+   }
+   return v;
+ }
