@@ -50,10 +50,10 @@ public:
 			que.pop();
 			right = rNode.second;
 			if (rNode.first->left) {
-				que.push({rNode.first->left, 2 * rNode.second + 1});
+				que.push({rNode.first->left, 2 * rNode.second});
 			}
 			if (rNode.first->right) {
-				que.push({rNode.first->right, 2 * rNode.second + 2});
+				que.push({rNode.first->right, 2 * rNode.second + 1});
 			}
 		}
 		width = max(width, int(right - left + 1));
