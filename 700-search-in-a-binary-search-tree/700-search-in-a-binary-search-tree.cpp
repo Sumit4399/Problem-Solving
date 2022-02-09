@@ -18,12 +18,13 @@ public:
             return root;
         
         else if(root->val == val)
-            v=root;
+            return root;
         else if(val<root->val)
             return searchBST(root->left, val);
         else 
             return searchBST(root->right, val);
-        
         return v;
+        
+        
     }
 };
