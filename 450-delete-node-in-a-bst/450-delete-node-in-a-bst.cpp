@@ -12,10 +12,10 @@
 class Solution {
 public:
     
-    TreeNode* findmin(TreeNode* root){
-        if(root->left== NULL)
+    TreeNode* findmax(TreeNode* root){
+        if(root->right== NULL)
             return root;
-        return findmin(root->left);
+        return findmax(root->right);
     }
     
     
@@ -62,9 +62,9 @@ public:
             //case when both elements are present
             else
             {
-                TreeNode*temp= findmin(root->right);
+                TreeNode*temp= findmax(root->left);
                 root->val= temp->val;
-                root->right= deleteNode(root->right, root->val);
+                root->left= deleteNode(root->left, root->val);
             }
         }
         
