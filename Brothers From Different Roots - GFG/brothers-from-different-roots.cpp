@@ -113,17 +113,17 @@ public:
     
     int countPairs(Node* root1, Node* root2, int x)
     {
-       vector<int> in1,in2;
-       inorder(root1,in1);
-       inorder(root2,in2);
+      vector<int> v1,v2;
+       inorder(root1,v1);
+       inorder(root2,v2);
        
-       unordered_set<int> s(in1.begin(),in1.end());
+       unordered_set<int> s(v1.begin(),v1.end());
        
        int cnt = 0;
-       for(int i = 0; i < in2.size(); i++){
-           if(s.find(x - in2[i]) != s.end()) cnt++;
+       for(int i = 0; i < v2.size(); i++){
+           if(s.find(x - v2[i]) != s.end()) cnt++;
        }
-       return cnt;
+       return (cnt);  
     }
 };
 
