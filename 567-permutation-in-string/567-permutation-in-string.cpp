@@ -30,10 +30,8 @@ public:
                 {
                      return true;
                 }
-               if(m.find(s2[i])!=m.end())//while sliding the window check if that 
-                   // character is present in the map then increase it's frequency
-                   // by one as we have decreased the frequency of that character 
-                   // when it was first encountered while traversing the window.
+               if(m.find(s2[i])!=m.end())/*while sliding the window check if                    that character is present in the map then increase 
+                   it's frequency by one as we have decreased the frequency                    of that character when it was first encountered while                        traversing the window.*/
                 {
                     m[s2[i]]++;
                     if(m[s2[i]]==1)
