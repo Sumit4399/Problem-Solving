@@ -12,19 +12,29 @@
 class Solution {
 public:
     
-    void inorder(TreeNode* root, vector<int> &v)
-    {
-        if(!root)
-            return;
-        inorder(root->left, v);
-        v.push_back(root->val);
-        inorder(root->right, v);
-    }
+    // void inorder(TreeNode* root, vector<int> &v)
+    // {
+    //     if(!root)
+    //         return;
+    //     inorder(root->left, v);
+    //     v.push_back(root->val);
+    //     inorder(root->right, v);
+    // }
     
     int getMinimumDifference(TreeNode* root) {
         
         vector<int> v;
-        inorder(root, v);
+
+        function<void(TreeNode*)> inorder = [&](TreeNode* root2)
+        {
+            if(!root2)
+            return;
+            inorder(root2->left);
+            v.push_back(root2->val);
+            inorder(root2->right);
+        };
+        // TreeNode* temp = root;
+        inorder(root);
         int res= INT_MAX;
         for(int i=1; i<size(v); i++)
         {
