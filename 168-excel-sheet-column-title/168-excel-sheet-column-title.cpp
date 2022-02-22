@@ -2,14 +2,15 @@ class Solution {
 public:
     string convertToTitle(int n) {
         
-        //string res="";
-        string ans;
-	while(n)
+    string s="";
+    n--;
+    while(n>=0)
     {
-		n= n-1;
-		ans=(char)(n%26+'A')+ ans;
-		n/=26;
-	}
-	return ans;
+        s+=('A'+n%26);
+        n/=26;
+        n--;
+    }
+    reverse(s.begin(),s.end());
+    return s;
     }
 };
