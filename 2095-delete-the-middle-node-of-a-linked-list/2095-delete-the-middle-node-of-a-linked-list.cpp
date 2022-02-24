@@ -17,6 +17,7 @@ public:
         
         if(!head->next)
         {
+            delete head;
             return NULL;
         }
         
