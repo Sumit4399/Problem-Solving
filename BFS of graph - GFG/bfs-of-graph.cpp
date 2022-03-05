@@ -9,7 +9,7 @@ class Solution {
     vector<int> bfsOfGraph(int V, vector<int> adj[]) {
         // Code here
         
-        vector<int> vis(V, false);
+        vector<bool> vis(V, false);
         vector<int> res;
         res.push_back(0);
         vis[0]=true;
