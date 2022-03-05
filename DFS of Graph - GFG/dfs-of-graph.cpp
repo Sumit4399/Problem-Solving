@@ -6,36 +6,63 @@ using namespace std;
 class Solution {
   public:
   
-  void dfs(int V, vector<int> adj[], bool visited[], int curr, vector<int> &res){
-      
-      
-      for(int i=0; i<adj[curr].size(); i++)
-      {
-          if(visited[adj[curr][i]]==true)
-          continue;
-          
-          else
-          {
-             visited[adj[curr][i]]=true;
-             res.push_back(adj[curr][i]);
-             dfs(V, adj, visited, adj[curr][i], res);
-             
-          }
-      }
-  }
-  
-  
-    // Function to return a list containing the DFS traversal of the graph.
-    vector<int> dfsOfGraph(int V, vector<int> adj[]) {
-        // Code here
+    //   Iterative DFS
+    //   vector<int> dfsOfGraph(int V, vector<int> adj[])
+    //   {
+    //       vector<int>res;
+    //       vector<bool>visited(V, false);
+    //       stack<int> st;
+    //       st.push(0);
+           
+    //       while(!st.empty())
+    //       {
+    //           int curr= st.top();
+    //           st.pop();
+               
+    //           if(visited[curr])
+    //           continue;
+    //           res.push_back(curr);
+    //           visited[curr]=true;
+               
+    //           for(int i=adj[curr].size()-1; i>=0; i--)
+    //           {
+    //               st.push(adj[curr][i]);
+    //           }
+    //       }
+    //       return res;
+    //   }
+    
+    
+    
+    //RECURSIVE DFS
+    void dfs(int node, vector<bool> &vis, vector<int> adj[], vector<int> &res){
         
-        vector<int> res={0};
-        int curr=0;
-        bool visited[V+1]= {false};
-        visited[0]= true;
-        dfs(V, adj, visited, curr, res);
+        res.push_back(node);
+        vis[node]=true;
+        for(auto it : adj[node])
+        {
+            if(!vis[it])
+            {
+                dfs(it, vis, adj, res);
+            }
+        }
+    }
+    
+    vector<int> dfsOfGraph(int V, vector<int> adj[]){
+        
+        vector<bool> vis(V, false);
+        vector<int> res;
+        
+        for(int i=0; i<V; i++)
+        {
+            if(!vis[i])
+            {
+                dfs(i, vis, adj, res);
+            }
+        }
         return res;
     }
+       
 };
 
 // { Driver Code Starts.
