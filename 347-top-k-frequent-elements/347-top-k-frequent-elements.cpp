@@ -14,7 +14,7 @@ public:
         priority_queue<pair<int, int>> pq; //vector<int, int>, greater<int, int>>> pq;
         for(auto it : mp)
         {
-            pq.push(make_pair(it.second, it.first));
+            pq.push({it.second, it.first});
         }
         
         while(k>0)
