@@ -22,8 +22,8 @@ public:
             // cout<<x<<"\n";
             for(int i=0; i<x; i++)
             {
-                // res.push_back(pq.top().first);
-                res+=pq.top().second;
+                res.push_back(pq.top().second);
+                //res+=pq.top().second;
             }
             pq.pop();
         }
