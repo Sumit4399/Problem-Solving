@@ -79,6 +79,11 @@ class Solution {
  	        }
  	    }
  	    
+ 	    //it is pretty clear that if a if res==V than a topo sort is 
+ 	    //found which the graph is acyclic. Topo sort is basically the 
+ 	    //linear way of representing the vertices of graph. And if res!=V,
+ 	    //it means the graph is cyclic.
+ 	    
         return (res==V? false : true);
    }
 // }
