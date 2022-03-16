@@ -13,7 +13,7 @@ public:
         
         //assuming both the keys are present in tree
         if(root==NULL)
-        return root;
+        return NULL;
         
         //if any one of the key is equal to root
         if(root==p || root==q)
