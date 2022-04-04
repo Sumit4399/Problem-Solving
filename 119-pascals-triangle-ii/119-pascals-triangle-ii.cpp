@@ -4,7 +4,7 @@ public:
         
     //dp approach
     vector<vector<int>> res;
-	for (int i = 0; i <=num; i++)
+	for(int i = 0; i <=num; i++)
     {
 		vector<int> row(i + 1, 1);
 		for (int j = 1; j < i; j++)
@@ -13,7 +13,6 @@ public:
 		}
 		res.push_back(row);
     }
-        
 	    return res[num];
     }
 };
