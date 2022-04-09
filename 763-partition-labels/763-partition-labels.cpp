@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> partitionLabels(string s) {
         
-         unordered_map<int, int>mp;
+        unordered_map<int, int>mp;
         vector<int>res;
         
         for(int i=0; i<s.size(); i++){
