@@ -27,6 +27,7 @@ public:
         vector<int> v;
         inorder(root, v);
         
+        //creating new tree with only right nodes
         TreeNode* res= new TreeNode(v[0]);
         TreeNode* temp=res;
         for(int i=1; i<size(v); i++)
