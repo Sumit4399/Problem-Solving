@@ -2,8 +2,9 @@ class Solution {
 public:
     int networkDelayTime(vector<vector<int>>& times, int N, int K) {
         
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>>pq;
-			vector<int>dist(N+1, INT_MAX);
+        priority_queue<pair<int, int>, vector<pair<int, int>>, 
+        greater<pair<int, int>>>pq;
+		vector<int>dist(N+1, INT_MAX);
 			
 			pq.push({0, K});
 			dist[K] = 0;
