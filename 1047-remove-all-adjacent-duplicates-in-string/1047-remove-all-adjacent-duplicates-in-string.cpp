@@ -13,9 +13,6 @@ public:
         
         
         string ans={};
-        if(res.size()==0)
-            return ans;
-        
         while(!res.empty())
         {
             ans+= res.top();
