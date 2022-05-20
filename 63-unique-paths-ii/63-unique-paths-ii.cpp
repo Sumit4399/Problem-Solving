@@ -10,11 +10,13 @@ public:
         memset(dp,0,sizeof(dp));
         
         for(int i=0;i<m;i++)
-        {   if(obstacleGrid[i][0]!=1) dp[i][0]=1;
+        {   if(obstacleGrid[i][0]!=1)
+            dp[i][0]=1;
             else break;
         }
         for(int j=0;j<n;j++)
-        {   if(obstacleGrid[0][j]!=1) dp[0][j]=1;
+        {   if(obstacleGrid[0][j]!=1) 
+            dp[0][j]=1;
             else break;
         }
         
