@@ -33,7 +33,7 @@ public:
         vector<int> odd, even;
         for(int i = 0; i < nums.size(); i++) 
         {
-            if(i & 1)
+            if(i%2==1)
             {
                 odd.push_back(nums[i]);
             } 
@@ -48,7 +48,7 @@ public:
         
         for(int i = 0; i < nums.size(); i++) 
         {
-            if(i & 1)
+            if(i%2==1)
             {
                 nums[i] = odd[0];
                 odd.erase(odd.begin());
