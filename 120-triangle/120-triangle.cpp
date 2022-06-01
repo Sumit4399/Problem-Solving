@@ -24,24 +24,49 @@ public:
     
     
     //tabulation
-    int minimumTotal(vector<vector<int>>& tri){
+//     int minimumTotal(vector<vector<int>>& tri){
         
+//     int n= tri.size();
+//     vector<vector<int>> dp(n, vector<int> (n, INT_MAX));
+//     //base case
+//     for(int j=0; j<n; j++)
+//     {
+//         dp[n-1][j]= tri[n-1][j];
+//     }
+//     for(int i= n-2; i>=0; i--)
+//     {
+//         for(int j=i; j>=0; j--)
+//         {
+//             int d= tri[i][j] + dp[i+1][j];
+//             int dg= tri[i][j] + dp[i+1][j+1];
+//             dp[i][j]= min(d, dg);
+//         }
+//     }
+//     return dp[0][0];
+//     }
+    
+    
+    //space-optimsed
+    int minimumTotal(vector<vector<int>>& tri){
+       
     int n= tri.size();
-    vector<vector<int>> dp(n, vector<int> (n, INT_MAX));
+    vector<int> front(n,0);
     //base case
     for(int j=0; j<n; j++)
     {
-        dp[n-1][j]= tri[n-1][j];
+        front[j]= tri[n-1][j];
     }
     for(int i= n-2; i>=0; i--)
     {
+        vector<int> curr(n,0);
         for(int j=i; j>=0; j--)
         {
-            int d= tri[i][j] + dp[i+1][j];
-            int dg= tri[i][j] + dp[i+1][j+1];
-            dp[i][j]= min(d, dg);
+            int d= tri[i][j] + front[j];
+            int dg= tri[i][j] + front[j+1];
+            curr[j]= min(d, dg);
         }
+        front= curr;
     }
-    return dp[0][0];
+    return front[0];
     }
 };
