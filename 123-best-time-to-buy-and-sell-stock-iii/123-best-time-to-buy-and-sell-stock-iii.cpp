@@ -1,42 +1,35 @@
 class Solution {
 public:
     
-    
-    int helper(int k, vector<int>& prices) {
-        
-        int n=prices.size();
-        int dp[n+1][k+1][2];
-        memset(dp,0,sizeof(dp));
-        //vector<vector<vector<int>>> dp(n+1, vector<vector<int>> (k+1, vector<int>(2,0)));
-        
-        for(int i=n-1; i>=0; i--)
-        {
-            for(int rem=1; rem<=k; rem++)
-            {
-                for(int hold=0; hold<2; hold++)
-                {
-                    int no= dp[i+1][rem][hold];
-                    int yes;
-                    if(hold==1) //selling stock
-                    {
-                        yes= prices[i] + dp[i+1][rem-1][0];
-                    }
-                    else //(hold==0) buying stock
-                    {
-                        yes= -prices[i] + dp[i+1][rem][1];
-                    }
-                    //recurrence relation
-                    dp[i][rem][hold]= max(no, yes);
-                }
-            }
-        }
-        
-        return dp[0][k][0];
-    }
-    
-    
-    int maxProfit(vector<int>& prices) {
-        
-        return helper(2, prices);
+    //space-optimsed
+    int maxProfit(vector<int>& val) {
+         
+         int n= val.size();
+         vector<vector<int>> after(2, vector<int> (3,0));
+         vector<vector<int>> curr(2, vector<int> (3,0));
+
+         for(int i=n-1; i>=0; i--)
+         {
+             for(int buy=0; buy<=1; buy++)
+             {
+                 for(int cap=1; cap<=2; cap++)
+                 {
+                     int profit=0;
+                     if(buy==1)
+                     {
+                         profit= max(-val[i] + after[0][cap], //bought
+                                     0+ after[1][cap]);       //not bought
+                     }
+                     else
+                     {
+                         profit= max(val[i] + after[1][cap-1], //sold
+                                     0 + after[0][cap]);    //not sold
+                     }
+                     curr[buy][cap]= profit;
+                 }
+             }
+             after= curr;
+         }
+        return after[1][2];
     }
 };
