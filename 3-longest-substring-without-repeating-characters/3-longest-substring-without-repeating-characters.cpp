@@ -7,7 +7,7 @@ public:
         if(n==0)
             return 0;
         
-        set<char> st;
+        unordered_set<char> st;
         int i=0, j=0;
         
         while(i<n)
