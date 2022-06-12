@@ -4,7 +4,7 @@ public:
         
         int n=nums.size();
         int i=0, j=0;
-        set<int> s;
+        unordered_set<int> s;
         int sum=0;
         int res=0;
         
