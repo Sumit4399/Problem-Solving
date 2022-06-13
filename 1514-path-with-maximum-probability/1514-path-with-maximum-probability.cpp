@@ -28,7 +28,7 @@ public:
             
             for(auto it : graph[pos])
             {
-                if(vis[it.first] != true)
+                //if(vis[it.first] != true)
                     pq.push({pb*it.second, it.first});
             }
         }
