@@ -6,22 +6,22 @@ public:
 }
     
     bool compare(string & curr, string & pre){ 
-    if(curr.size()!=pre.size()+1) 
-        return false;
+        if(curr.size()!=pre.size()+1) 
+            return false;
 
-    int i=0, j=0;
-    while(i<curr.size())
-    {
-        if(curr[i]==pre[j])
+        int i=0, j=0;
+        while(i<curr.size())
         {
-            i++;
-            j++;
+            if(curr[i]==pre[j])
+            {
+                i++;
+                j++;
+            }
+            else
+            {
+                i++;
+            }
         }
-        else
-        {
-            i++;
-        }
-    }
 
         if(i==curr.size() && j==pre.size()) 
             return true;
@@ -31,7 +31,9 @@ public:
 
     int longestStrChain(vector<string>& nums) {
         int n=nums.size();
-        //sort the string according to their length because this is subset which can have any order.
+        
+        //sort the string according to their length because 
+        //this is subset which can have any order.
         sort(nums.begin(), nums.end(), comp);
         vector<int>dp(n, 1), hash(n);
         int maxi=1;
@@ -55,9 +57,11 @@ public:
                 lastInd=i;
             }
         }
+        
         vector<string>temp;
 
-        while(hash[lastInd]!=lastInd){
+        while(hash[lastInd]!=lastInd)
+        {
             temp.push_back(nums[lastInd]);
             lastInd=hash[lastInd];
         }
@@ -65,7 +69,8 @@ public:
         temp.push_back(nums[lastInd]);
         reverse(temp.begin(), temp.end());
 
-        for(auto x: temp){
+        for(auto x: temp)
+        {
             cout<<x<<" ";
         }
 
