@@ -7,6 +7,7 @@ public:
         {
             sum+= nums[i];
         }
+        
         int l=0;
         for(int i=0; i<nums.size(); i++)
         {
@@ -16,5 +17,6 @@ public:
         }
         
         return -1;
+
     }
 };
