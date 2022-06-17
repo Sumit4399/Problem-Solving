@@ -27,12 +27,12 @@ public:
         {
             for(int j=0; j<c; j++)
             {
-                if(i*j==0 || i==r-1|| j==c-1)
+                if((i*j==0 || i==r-1|| j==c-1) && grid[i][j]==0)
                 {
-                     if(grid[i][j]==0)
-                    {
+                    // if(grid[i][j]==0)
+                    //{
                         dfs(grid, r,c,i, j);
-                    }
+                    //}
                 }
             }
         }
