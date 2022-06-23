@@ -34,8 +34,8 @@ public:
                         if(grid[i][k] == 1 && k!=j)
                         {
                             temp= true;
-                            continue;
-                            //break;
+                            //continue;
+                            break;
                         }
                     }
                     
