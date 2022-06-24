@@ -14,7 +14,7 @@ class Solution{
        
         while(l<=h)
         {
-            int mid= (l+h) >>1;
+            int mid= (l+h)/2;
             if(a[mid] == key)
             return mid;
             
