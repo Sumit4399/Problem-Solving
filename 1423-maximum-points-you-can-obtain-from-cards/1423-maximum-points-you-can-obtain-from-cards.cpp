@@ -37,6 +37,7 @@ public:
     
     
     int maxScore(vector<int>& C, int K) {
+        
         int total = 0;
         for (int i = 0; i < K; i++) total += C[i];
         int best = total;
