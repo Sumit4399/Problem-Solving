@@ -13,9 +13,11 @@ public:
             return dp[n][tar];
         
         long long int count=0;
-        for(int i=1 ; i<=k && tar>=i ; i++)
+        
+        for(int i=1 ; i<=k; i++)
         {
-            count = count%mod + memo(n-1, k, tar-i, dp) %mod;
+            if(tar>=i)
+                count = count%mod + memo(n-1, k, tar-i, dp) %mod;
         }
         
         return dp[n][tar]= count%mod;
