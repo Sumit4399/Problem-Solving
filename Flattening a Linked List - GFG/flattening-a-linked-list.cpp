@@ -110,9 +110,12 @@ struct Node{
 
 /*  Function which returns the  root of 
     the flattened linked list. */
+static bool cmp(Node* a, Node*b){
+    return a->data<b->data;
+}
 Node *flatten(Node *root)
 {
-    vector<int> v;
+    vector<Node*> v;
     Node *curr= root;
     Node *temp= root;
     
@@ -121,20 +124,20 @@ Node *flatten(Node *root)
         temp= curr;
         while(temp != NULL)
         {
-            v.push_back(temp->data);
+            v.push_back(temp);
             temp= temp->bottom;
         }
         curr= curr->next;
     }
     
-    sort(v.begin(), v.end());
+    sort(v.begin(), v.end(), cmp);
     
-    Node *head= new Node(v[0]);
+    Node *head= v[0];
     Node *ans= head;
     
     for(int i=1; i<v.size(); i++)
     {
-        ans->bottom = new Node(v[i]);
+        ans->bottom = v[i];
         ans= ans->bottom;
     }
     
