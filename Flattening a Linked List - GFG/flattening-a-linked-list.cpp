@@ -110,39 +110,74 @@ struct Node{
 
 /*  Function which returns the  root of 
     the flattened linked list. */
-static bool cmp(Node* a, Node*b){
-    return a->data<b->data;
+
+
+//using a vector array
+// static bool cmp(Node* a, Node*b){
+//     return a->data<b->data;
+// }
+
+// Node *flatten(Node *root)
+// {
+//     vector<Node*> v;
+//     Node *curr= root;
+//     Node *temp= root;
+    
+//     while(curr!= NULL)
+//     {
+//         temp= curr;
+//         while(temp != NULL)
+//         {
+//             v.push_back(temp);
+//             temp= temp->bottom;
+//         }
+//         curr= curr->next;
+//     }
+    
+//     sort(v.begin(), v.end(), cmp);
+    
+//     Node *head= v[0];
+//     Node *ans= head;
+    
+//     for(int i=1; i<v.size(); i++)
+//     {
+//         ans->bottom = v[i];
+//         ans= ans->bottom;
+//     }
+    
+//     ans->bottom= NULL;
+    
+//     return head;
+// }
+
+
+Node* merge(Node*a, Node* b)
+{
+    if(a==NULL) return b;
+    if(b==NULL) return a;
+    
+    Node* res;
+    if(a->data < b->data)
+    {
+        res= a;
+        res->bottom = merge(a->bottom, b);
+    }
+    
+    else
+    {
+        res=b; 
+        res->bottom= merge(a, b->bottom);
+    }
+    
+    res->next= NULL;
+    return res;
 }
+
 Node *flatten(Node *root)
 {
-    vector<Node*> v;
-    Node *curr= root;
-    Node *temp= root;
+    if(root == NULL || root->next== NULL)
+    return root;
     
-    while(curr!= NULL)
-    {
-        temp= curr;
-        while(temp != NULL)
-        {
-            v.push_back(temp);
-            temp= temp->bottom;
-        }
-        curr= curr->next;
-    }
-    
-    sort(v.begin(), v.end(), cmp);
-    
-    Node *head= v[0];
-    Node *ans= head;
-    
-    for(int i=1; i<v.size(); i++)
-    {
-        ans->bottom = v[i];
-        ans= ans->bottom;
-    }
-    
-    ans->bottom= NULL;
-    
-    return head;
+    return merge(root, flatten(root->next));
 }
 
