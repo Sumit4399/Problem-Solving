@@ -39,13 +39,17 @@ public:
 //         return res;
 //     }
     
-    void level(TreeNode *root,int lev,vector<int> &v)
-    {
-    if(root==NULL) return;
-    if(v.size()==lev) v.push_back(root->val);
-    level(root->right,lev+1,v);
-    level(root->left,lev+1,v);
-   }
+    void level(TreeNode *root, int lev, vector<int> &v){
+    
+        if(root==NULL) 
+            return;
+        
+        if(v.size()==lev) 
+            v.push_back(root->val);
+        
+        level(root->right,lev+1,v);
+        level(root->left,lev+1,v);
+      }
      
       vector<int> rightSideView(TreeNode* root){
           
