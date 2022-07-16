@@ -3,11 +3,11 @@ public:
     
     // declare a dp table
     
-    int dp[55][55][55];
+    //int dp[55][55][55];
     
     long long mod = 1e9 + 7;
     
-    int dfs(int i, int j, int n, int m, int moves)
+    int dfs(int i, int j, int n, int m, int moves, vector<vector<vector<int>>> &dp)
     {
         // base case, if we reached out of grid
         
@@ -26,19 +26,19 @@ public:
         
         // call for upper side
         
-        int up = dfs(i - 1, j, n, m, moves - 1);
+        int up = dfs(i - 1, j, n, m, moves - 1, dp);
         
         // call for down side
         
-        int down = dfs(i + 1, j, n, m, moves - 1);
+        int down = dfs(i + 1, j, n, m, moves - 1, dp);
         
         // call for left side
         
-        int left = dfs(i, j - 1, n, m, moves - 1);
+        int left = dfs(i, j - 1, n, m, moves - 1, dp);
         
         // call for right side
         
-        int right = dfs(i, j + 1, n, m, moves - 1);
+        int right = dfs(i, j + 1, n, m, moves - 1, dp);
         
         // total paths will be sum of all the paths from all four directions
         
@@ -50,9 +50,10 @@ public:
     int findPaths(int n, int m, int maxMove, int startRow, int startColumn) {
         
         // initialize the dp with -1
+        vector<vector<vector<int>>> dp(n+1, vector<vector<int>>(m+1, vector<int> (maxMove+1, -1)));
         
-        memset(dp, -1, sizeof(dp));
+        //memset(dp, -1, sizeof(dp));
         
-        return dfs(startRow, startColumn, n, m, maxMove);
+        return dfs(startRow, startColumn, n, m, maxMove, dp);
     }
 };
