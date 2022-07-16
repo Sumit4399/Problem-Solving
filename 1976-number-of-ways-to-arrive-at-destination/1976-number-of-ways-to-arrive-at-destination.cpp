@@ -20,11 +20,11 @@ public:
         //now use dijstra to find the shortest-path and dp to calculate the no. of ways
         priority_queue<pair<long long, long long>, vector<pair<long long, long long>>,           greater<pair<long long, long long>>> pq;
         
-        vector<long long> dis(n+1); //store shortest distance
-        for(int i=0; i<n; i++)
-        {
-            dis[i]= 1e18;
-        }
+        vector<long long> dis(n+1, 1e18); //store shortest distance
+        // for(int i=0; i<n; i++)
+        // {
+        //     dis[i]= 1e18;
+        // }
         vector<long long> ways(n+1, 0); //to store ways
         ways[0]=1;
         pq.push({0, 0});
