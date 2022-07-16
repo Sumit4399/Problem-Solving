@@ -8,7 +8,7 @@ public:
         
         grid2[i][j]=0;
         
-        //calling dfs in all 4 direction
+        //calling dfs in all 4 directions
         dfs(i-1, j, r, c, grid1, grid2);
         dfs(i, j-1, r, c, grid1, grid2);
         dfs(i+1, j, r, c, grid1, grid2);
