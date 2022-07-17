@@ -2,7 +2,7 @@ class Solution {
 public:
     int maxDistance(vector<vector<int>>& grid) {
        
-       queue<pair<int, int>> q;
+        queue<pair<int, int>> q;
         for(int i=0; i<grid.size(); i++)
         {
             for(int j=0; j<grid[0].size(); j++)
