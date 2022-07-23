@@ -18,6 +18,7 @@ public:
     }
     
     int minReorder(int n, vector<vector<int>>& connections) {
+        
         int count=0;
         vector<int>vis(n, 0);
         vector<int>adj[n];
