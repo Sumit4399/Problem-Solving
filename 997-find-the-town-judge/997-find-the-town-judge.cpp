@@ -22,6 +22,7 @@ public:
         //using hashmap
         if(n==1)
             return 1;
+        
         map<int, int> out;
         map<int, int> in;
         
