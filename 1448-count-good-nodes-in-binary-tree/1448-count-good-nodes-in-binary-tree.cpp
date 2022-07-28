@@ -20,7 +20,7 @@ public:
         if(root->val >= maxi)
         {
             c++;
-            maxi= max(maxi, root->val);    
+            maxi= root->val; 
         }
         
         pre(root->left, c, maxi);
