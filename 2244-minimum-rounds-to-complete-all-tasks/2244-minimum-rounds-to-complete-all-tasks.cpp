@@ -2,7 +2,7 @@ class Solution {
 public:
     int minimumRounds(vector<int>& t) {
         
-        map<int, int> mp;
+        unordered_map<int, int> mp;
         for(int i=0; i<t.size(); i++)
         {
             mp[t[i]]++;
